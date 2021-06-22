@@ -1,28 +1,21 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartDataSets, ChartOptions } from 'chart.js';
+import { Component, OnInit } from '@angular/core';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-my-line-chart',
+  templateUrl: './my-line-chart.component.html',
+  styleUrls: ['./my-line-chart.component.css']
 })
-export class AppComponent {
+export class MyLineChartComponent implements OnInit {
+
   public lineChartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
   ];
   public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  // public lineChartOptions: (ChartOptions & { annotation: any }) = {
-  //   responsive: true,
-  // };
-
-  public lineChartOptions: (ChartOptions) = {
+  public lineChartOptions: ChartOptions = {
     responsive: true,
   };
-
-
-
   public lineChartColors: Color[] = [
     {
       borderColor: 'black',
@@ -30,11 +23,12 @@ export class AppComponent {
     },
   ];
   public lineChartLegend = true;
-  public lineChartType = 'line';
+  public lineChartType: ChartType = 'line';
   public lineChartPlugins = [];
 
   constructor() { }
 
   ngOnInit() {
   }
+
 }
